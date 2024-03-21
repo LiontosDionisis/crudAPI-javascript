@@ -24,6 +24,7 @@ exports.findOne = async(req, res) => {
         logger.debug("Success in finding one user");
         logger.info("Success in finding one user");
     } catch(err){
+        res.status(400).json({data: err})
         console.log(err);
         logger.error("Error in finding one user");
     }

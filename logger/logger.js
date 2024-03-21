@@ -43,6 +43,15 @@ const logger = createLogger({
                 format.timestamp(),
                 format.json()
             )
+        }),
+        new transports.MongoDB({
+            level: "error",
+            db : process.env.MONGODB_URI,
+            collection: "server_error_logs",
+            format: format.combine(
+                format.timestamp(),
+                format.json()
+            )
         })
     ]
 });
