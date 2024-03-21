@@ -186,6 +186,23 @@ exports.options = {
                         }
                     }
                 }
+            },
+            "delete": {
+                "tags": ["Users"],
+                "description": "Delete a user :(",
+                "parameter": [
+                    {
+                        "name":"username",
+                        "in": "path",
+                        "description": "User to delete",
+                        "type": {"type": "String"}
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete a user..."
+                    }
+                }
             }
         }
     }
