@@ -64,6 +64,50 @@ exports.options = {
                         }
                     }
                 }
+            },
+            "post": {
+                "tags": ["Users"],
+                "description": "Create a new user",
+                "requestBody": {
+                    "description": "User schema to insert",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {"type": "String"},
+                                    "password": {"type": "String"},
+                                    "name": {"type": "String"},
+                                    "surname": {"type": "String"},
+                                    "email": {"type": "String"},
+                                    "address": {
+                                        "type": "object",
+                                        "properties": {
+                                            "area": {"type": "String"},
+                                            "road": {"type": "String"}
+                                        }
+                                    },
+                                    "phone": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {"type": "String"},
+                                                "number": {"type": "String"}
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": ["username", "password", "email"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "New user inserted"
+                    }
+                }
             }
         },
         "/api/users/{username}":{
