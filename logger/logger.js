@@ -1,4 +1,4 @@
-const {format, createLogger, transports} = require("winston");
+const {format, createLogger, transports, transport} = require("winston");
 require("winston-daily-rotate-file");
 require("winston-mongodb");
 
@@ -34,7 +34,16 @@ const logger = createLogger({
             level: "info",
             filename: "logs/info.log"
         }),
-        fileRotateTransport
+        fileRotateTransport,
+        new transports.MongoDB({
+            level: "info",
+            db: process.env.MONGODB_URI,
+            collection: "server_logs",
+            format: format.combine(
+                format.timestamp(),
+                format.json()
+            )
+        })
     ]
 });
 
