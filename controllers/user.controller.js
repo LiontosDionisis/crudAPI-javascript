@@ -1,10 +1,12 @@
 const  User = require("../models/user.model");
+const logger = require("../logger/logger");
 
 exports.findAll = async(req, res) => {
     console.log("Search for all users");
     try {
         const result = await User.find();
     res.status(200).json({data: result});
+    logger.debug("Success in reading all users");
     } catch (err) {
         console.log(err);
     }
@@ -17,6 +19,7 @@ exports.findOne = async(req, res) => {
     try {
         const result = await User.findOne({username: username});
         res.status(200).json({data: result});
+        logger.debug("Success in finding one user");
     } catch(err){
         console.log(err);
     }
@@ -41,6 +44,7 @@ exports.create = async(req, res) => {
     try {
         const result = await newUser.save();
         res.status(200).json({data: result})
+        logger.debug("Success in creating a user");
         console.log("User saved");
 
     } catch(err) {
@@ -69,6 +73,7 @@ exports.update = async(req, res) => {
             {new: true}
         )
         res.status(200).json({data: result});
+        logger.debug("Success in updating user");
         console.log("User", username,  "updated");
     } catch(err){
         res.status(400).json({data: err});
@@ -86,6 +91,7 @@ exports.delete = async(req,res) => {
             {username: username}
         )
         res.status(200).json({data: result});
+        logger.debug("Success in deleting user");
         console.log("User ", username, " has been deleted");
     } catch(err) {
         res.status(400).json({data: err});
