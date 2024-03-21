@@ -8,6 +8,7 @@ exports.findAll = async(req, res) => {
     res.status(200).json({data: result});
     logger.debug("Success in reading all users");
     } catch (err) {
+        logger.error("Error in reading all users");
         console.log(err);
     }
 }
@@ -22,6 +23,7 @@ exports.findOne = async(req, res) => {
         logger.debug("Success in finding one user");
     } catch(err){
         console.log(err);
+        logger.error("Error in finding one user");
     }
 }
 
@@ -49,6 +51,7 @@ exports.create = async(req, res) => {
 
     } catch(err) {
         res.status(400).json({data: err});
+        logger.error("Error in creating user");
         console.log("User insert error");
     }
 
@@ -77,6 +80,7 @@ exports.update = async(req, res) => {
         console.log("User", username,  "updated");
     } catch(err){
         res.status(400).json({data: err});
+        logger.error("Error in updating user");
         console.log("User update error");
     }
 }
@@ -95,6 +99,7 @@ exports.delete = async(req,res) => {
         console.log("User ", username, " has been deleted");
     } catch(err) {
         res.status(400).json({data: err});
+        logger.error("Error in deleting user");
         console.log("Error in deleting user: ", username);
     }
 }

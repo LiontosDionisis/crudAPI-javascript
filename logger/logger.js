@@ -18,6 +18,10 @@ const logger = createLogger({
         new transports.Console(),
         new transports.File({
             filename: "logs/example.log"
+        }),
+        new transports.File({
+            level:"error",
+            filename: "logs/error.log"
         })
     ]
 });
