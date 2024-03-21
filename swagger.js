@@ -131,6 +131,61 @@ exports.options = {
                         }
                     }
                 }
+            },
+            "patch": {
+                "tags": ["Users"],
+                "description": "Updates a user",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "description": "User's username to update",
+                        "type": "String"
+                    }
+                ],
+                "requestBody": {
+                    "description": "User that we update",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {"type": "String"},
+                                    "name": {"type": "String"},
+                                    "surname": {"type": "String"},
+                                    "email": {"type": "String"},
+                                    "address": {
+                                        "type": "object",
+                                        "properties": {
+                                            "area": {"type": "String"},
+                                            "road": {"type": "String"}
+                                        }
+                                    },
+                                    "phone": {
+                                        "type": "array",
+                                        "items" : {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {"type": "String"},
+                                                "number": {"type": "String"}
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": ["email"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User update",
+                        "schema": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    }
+                }
             }
         }
     }
