@@ -4,6 +4,13 @@ require("winston-mongodb");
 
 const {combine, timestamp, label, prettyPrint} = format;
 
+const fileRotateTransport = new transports.DailyRotateFile({
+    level: "info",
+    filename: "logs/info-%DATE%.log",
+    datePattern: "DD-MM-YYYY",
+    maxFiles: "10d",
+});
+
 const logger = createLogger({
     level : "debug",
     format : combine (
@@ -22,7 +29,12 @@ const logger = createLogger({
         new transports.File({
             level:"error",
             filename: "logs/error.log"
-        })
+        }),
+        new transports.File({
+            level: "info",
+            filename: "logs/info.log"
+        }),
+        fileRotateTransport
     ]
 });
 
