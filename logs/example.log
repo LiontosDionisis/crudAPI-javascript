@@ -66,3 +66,12 @@
 {"label":"Logs for Users Products App","level":"info","message":"Success in finding one user","timestamp":"22-03-2024 20:33:20"}
 {"label":"Logs for Users Products App","level":"debug","message":"Success in creating a user","timestamp":"22-03-2024 20:33:21"}
 {"label":"Logs for Users Products App","level":"info","message":"Success in creating a user","timestamp":"22-03-2024 20:33:21"}
+{"label":"Logs for Users Products App","level":"debug","message":"Success in reading all users","timestamp":"22-03-2024 20:37:52"}
+{"label":"Logs for Users Products App","level":"info","message":"Success in reading all users","timestamp":"22-03-2024 20:37:52"}
+{"label":"Logs for Users Products App","level":"debug","message":"Success in reading all users","timestamp":"22-03-2024 20:51:37"}
+{"label":"Logs for Users Products App","level":"info","message":"Success in reading all users","timestamp":"22-03-2024 20:51:37"}
+{"label":"Logs for Users Products App","level":"debug","message":"Success in finding one user","timestamp":"22-03-2024 20:51:38"}
+{"label":"Logs for Users Products App","level":"info","message":"Success in finding one user","timestamp":"22-03-2024 20:51:38"}
+{"label":"Logs for Users Products App","level":"error","message":"Error in creating user","timestamp":"22-03-2024 20:51:39"}
+{"label":"Logs for Users Products App","level":"debug","message":"Success in deleting user","timestamp":"22-03-2024 20:51:40"}
+{"label":"Logs for Users Products App","level":"info","message":"Success in deleting user","timestamp":"22-03-2024 20:51:40"}

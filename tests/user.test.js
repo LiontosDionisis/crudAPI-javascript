@@ -53,3 +53,13 @@ describe("Request POST /api/users", () => {
         expect(res.body.data).toBeTruthy();
     }, 20000)
 })
+
+describe("DELETE /api/users/:username", () => {
+    test("Delete last inserted user", async() => {
+        const result = await helper.findLastInsertedUser();
+        const res = await request(app)
+        .delete("/api/users/" + result.username);
+
+        expect(res.statusCode).toBe(200);
+    }, 20000)
+})
