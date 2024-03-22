@@ -38,6 +38,9 @@ const logger = createLogger({
         new transports.MongoDB({
             level: "info",
             db: process.env.MONGODB_URI,
+            options: {
+                useUnifiedTopology: true
+            },
             collection: "server_logs",
             format: format.combine(
                 format.timestamp(),
@@ -47,6 +50,9 @@ const logger = createLogger({
         new transports.MongoDB({
             level: "error",
             db : process.env.MONGODB_URI,
+            options: {
+                useUnifiedTopology: true
+            },
             collection: "server_error_logs",
             format: format.combine(
                 format.timestamp(),
