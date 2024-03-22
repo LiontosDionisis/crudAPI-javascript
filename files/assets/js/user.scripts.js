@@ -52,7 +52,7 @@ $(document).ready(function(){
       let data = response.data;
       let status = response.status
   
-      if (status) { 
+      if (data) { 
           console.log(true,'Επιτυχής εισαγωγή του χρήστη');
           alert(true,'Επιτυχής εισαγωγή του χρήστη');
           $('#frmUser')[0].reset();
