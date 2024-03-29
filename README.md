@@ -1,2 +1,3 @@
-Create Read Update Delete API in JavaScript. 
+CRUD API in JavaScript. 
 Using express, swagger and mongoose libraries
+Database: MongoDB
